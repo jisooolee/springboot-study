@@ -35,6 +35,17 @@ deploy:
     on:
       all_branches: true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: test-springboot-build-soo
+    key: test-springboot2-webservice.zip
+    bundle_type: zip
+    application: test-springboot2-webservice
+    deployment_group: test-springboot2-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+
 notifications:
   email:
     recipients:
